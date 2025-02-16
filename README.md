@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quick Polling App
 
-## Getting Started
+## Description
+A simple polling app where users can:
+- Create a poll with a question and multiple options.
+- Vote on a poll.
+- View poll results in real-time (auto-refresh every 5 seconds).
 
-First, run the development server:
+## Tech Stack
+- **Frontend**: Next.js, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: PostgreSQL
+- **Deployment**: Render
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- User authentication (Signup/Login)
+- Create polls with multiple options
+- Vote on polls
+- Real-time poll result updates
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API Endpoints
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Authentication
+#### **User Signup**
+**Endpoint:** `POST /signup``
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### **User Login**
+**Endpoint:** `POST /login`
 
-## Learn More
+### Polls
+#### **Create Poll**
+**Endpoint:** `POST /api/polls/createpoll`
 
-To learn more about Next.js, take a look at the following resources:
+#### **Fetch Polls**
+**Endpoint:** `GET /api/polls/fetchpoll`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### **General Polls Endpoint**
+**Endpoint:** `GET /api/polls/`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### **Add Vote**
+**Endpoint:** `POST /api/polls/addvote`
 
-## Deploy on Vercel
+## How to Run Locally
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/quick-polling-app.git
+   cd quick-polling-app
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Set up environment variables (`.env`):
+   ```sh
+   DATABASE_URL=your_postgresql_url
+   JWT_SECRET=your_secret_key
+   ```
+4. Start the backend:
+   ```sh
+   npm run dev
+   ```
+5. Start the frontend:
+   ```sh
+   cd frontend
+   npm run dev
+   ```
+6. Open your browser and go to `http://localhost:3000`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
